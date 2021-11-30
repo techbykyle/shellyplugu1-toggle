@@ -26,12 +26,14 @@ const ShellyPlug = ({device, http, tile, mqtt, useHttp, useMqtt, useMqttSub}) =>
         let power = 0.00
 
         if(device_state[http['get_meter']]?.power) {
-            power = device_state.power
+            power = device_state[http['get_meter']].power
         }
 
         if(device_state[mqtt['get_power']]) {
             power = device_state[mqtt['get_power']]
         }
+
+        console.log('Here: ', power, is_on)
 
         if(!is_on) {
             power = 0
