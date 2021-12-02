@@ -33,8 +33,6 @@ const ShellyPlug = ({device, http, tile, mqtt, useHttp, useMqtt, useMqttSub}) =>
             power = device_state[mqtt['get_power']]
         }
 
-        console.log('Here: ', power, is_on)
-
         if(!is_on) {
             power = 0
         }
