@@ -23,7 +23,7 @@ const ShellyPlug = ({device, http, tile, mqtt, useHttp, useMqtt, useMqttSub}) =>
 
     const showPower = () => {
         
-        let power = 0.00
+        let power = 0
 
         if(device_state[http['get_meter']]?.power) {
             power = device_state[http['get_meter']].power
@@ -37,12 +37,10 @@ const ShellyPlug = ({device, http, tile, mqtt, useHttp, useMqtt, useMqttSub}) =>
             power = 0
         }
 
-        return (
-            <div>
-                <span className="faccented">{power}</span>
-                <span className="f12">W</span>
-            </div>
-        )
+        return <>
+            <span className="faccented" title="Current Power Usage">{power.toFixed(1)}</span>
+            <span className="f12" title="Current Power Usage">W</span>
+        </>
     }
 
     const showEnergy = () => {
@@ -59,12 +57,10 @@ const ShellyPlug = ({device, http, tile, mqtt, useHttp, useMqtt, useMqttSub}) =>
 
         if(energy > 0) {
             energy = (energy * 17) / 1000000
-            return (
-                <div>
-                    <span className="faccented">{energy.toFixed(2)}</span>
-                    <span className="f12">kWh</span>
-                </div>
-            )
+            return <>
+                <span className="faccented" title="Total Power Used">{energy.toFixed(1)}</span>
+                <span className="f12" title="Total Power Used">kWh</span>
+            </>
         }
     }
 
@@ -87,10 +83,9 @@ const ShellyPlug = ({device, http, tile, mqtt, useHttp, useMqtt, useMqttSub}) =>
             <span 
                 onClick={() => handleClick()} 
                 style={style} 
-                className="tile-icon material-icons f75"
+                className="tile-icon material-icons f125"
             >power_settings_new</span>
-            {showPower()}
-            {showEnergy()}
+            {showPower()}/{showEnergy()}
         </div>
     )
 }

@@ -6,8 +6,15 @@ const exposes = require('./exposes.json')
 module.exports = {
     entry: './src/index.js',
     devServer: {
+        server: {
+            type: 'https',
+            options: {
+                requestCert: false,
+            },
+        },
+        historyApiFallback: true,
         host: '0.0.0.0',
-        port: 3001
+        port: 3001,
     },
     output: {
         chunkFilename: '[id].[contenthash].js',
