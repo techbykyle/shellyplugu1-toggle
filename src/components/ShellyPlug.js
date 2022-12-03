@@ -38,7 +38,7 @@ const ShellyPlug = ({device, http, tile, mqtt, useHttp, useMqtt, useMqttSub}) =>
         }
 
         return <>
-            <span className="faccented" title="Current Power Usage">{power.toFixed(1)}</span>
+            <span className="faccented" title="Current Power Usage">{power}</span>
             <span className="f12" title="Current Power Usage">W</span>
         </>
     }
@@ -58,7 +58,7 @@ const ShellyPlug = ({device, http, tile, mqtt, useHttp, useMqtt, useMqttSub}) =>
         if(energy > 0) {
             energy = (energy * 17) / 1000000
             return <>
-                <span className="faccented" title="Total Power Used">{energy.toFixed(1)}</span>
+                <span className="faccented" title="Total Power Used">{energy.toFixed(0)}</span>
                 <span className="f12" title="Total Power Used">kWh</span>
             </>
         }

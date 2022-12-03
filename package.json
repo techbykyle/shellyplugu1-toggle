@@ -1,7 +1,7 @@
 {
   "name": "shellyplugu1-toggle",
   "federated-module-name": "ShellyPlug",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Toggle button for the Shelly Plug",
   "main": "index.js",
   "scripts": {
