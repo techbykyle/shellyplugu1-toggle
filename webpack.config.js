@@ -7,7 +7,7 @@ module.exports = {
     entry: './src/index.js',
     devServer: {
         server: {
-            type: 'https',
+            type: 'http',
             options: {
                 requestCert: false,
             },
